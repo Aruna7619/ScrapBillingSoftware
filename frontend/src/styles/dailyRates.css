@@ -1,0 +1,373 @@
+/*=========================================
+        Daily Rates Page
+=========================================*/
+
+.daily-rates-page{
+    padding:30px;
+    background:#f5f7fb;
+    min-height:100vh;
+}
+
+/*=========================================
+        Header
+=========================================*/
+
+.page-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    margin-bottom:25px;
+}
+
+.page-header h2{
+    margin:0;
+    font-size:32px;
+    font-weight:700;
+    color:#1e293b;
+}
+
+.page-header p{
+    margin-top:8px;
+    color:#64748b;
+    font-size:16px;
+}
+
+/*=========================================
+        Update Button
+=========================================*/
+
+.add-rate-btn{
+    background:#2563eb;
+    color:#fff;
+    border:none;
+    padding:12px 24px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.add-rate-btn:hover{
+    background:#1d4ed8;
+}
+
+/*=========================================
+        Search
+=========================================*/
+
+.search-section{
+    margin-bottom:25px;
+}
+
+.search-section input{
+    width:350px;
+    max-width:100%;
+    padding:12px 16px;
+    border:1px solid #d1d5db;
+    border-radius:8px;
+    font-size:15px;
+    outline:none;
+    transition:.3s;
+}
+
+.search-section input:focus{
+    border-color:#2563eb;
+}
+
+/*=========================================
+        Responsive Table
+=========================================*/
+
+.table-responsive{
+    width:100%;
+    overflow-x:auto;
+    border-radius:10px;
+    background:#fff;
+}
+
+.daily-rates-table{
+    width:100%;
+    min-width:900px;
+    border-collapse:collapse;
+    background:#fff;
+}
+
+.daily-rates-table thead{
+    background:#2563eb;
+    color:#fff;
+}
+
+.daily-rates-table th{
+    padding:16px;
+    text-align:left;
+    font-size:15px;
+    font-weight:600;
+    white-space:nowrap;
+}
+
+.daily-rates-table td{
+    padding:16px;
+    border-bottom:1px solid #edf2f7;
+    color:#334155;
+    white-space:nowrap;
+}
+
+.daily-rates-table tbody tr:hover{
+    background:#f8fafc;
+}
+
+/*=========================================
+        Edit Button
+=========================================*/
+
+.edit-btn{
+    background:#facc15;
+    color:#000;
+    border:none;
+    padding:8px 16px;
+    border-radius:6px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.edit-btn:hover{
+    background:#eab308;
+}
+
+/*=========================================
+        Modal
+=========================================*/
+
+.modal-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+}
+
+.rate-modal{
+    width:500px;
+    max-width:95%;
+    background:#fff;
+    border-radius:12px;
+    padding:25px;
+    animation:popup .25s ease;
+}
+
+@keyframes popup{
+
+    from{
+        transform:scale(.9);
+        opacity:0;
+    }
+
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+
+}
+
+/*=========================================
+        Modal Header
+=========================================*/
+
+.modal-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.modal-header h3{
+    margin:0;
+}
+
+.close-btn{
+    background:none;
+    border:none;
+    font-size:28px;
+    cursor:pointer;
+}
+
+/*=========================================
+        Form
+=========================================*/
+
+.form-group{
+    margin-bottom:18px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+}
+
+.form-group input{
+    width:100%;
+    padding:11px;
+    border:1px solid #d1d5db;
+    border-radius:8px;
+    font-size:15px;
+    outline:none;
+}
+
+.form-group input:focus{
+    border-color:#2563eb;
+}
+
+/*=========================================
+        Buttons
+=========================================*/
+
+.modal-buttons{
+    display:flex;
+    justify-content:flex-end;
+    gap:12px;
+    margin-top:20px;
+}
+
+.cancel-btn{
+    background:#e2e8f0;
+    border:none;
+    padding:10px 20px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.save-btn{
+    background:#16a34a;
+    color:#fff;
+    border:none;
+    padding:10px 22px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.save-btn:hover{
+    background:#15803d;
+}
+
+/*=========================================
+        Tablet
+=========================================*/
+
+@media(max-width:992px){
+
+.daily-rates-page{
+    padding:20px;
+}
+
+.page-header h2{
+    font-size:28px;
+}
+
+.search-section input{
+    width:100%;
+}
+
+}
+
+/*=========================================
+        Mobile
+=========================================*/
+
+@media(max-width:768px){
+
+.daily-rates-page{
+    padding:15px;
+}
+
+.page-header{
+    flex-direction:column;
+    align-items:flex-start;
+}
+
+.add-rate-btn{
+    width:100%;
+}
+
+.search-section input{
+    width:100%;
+}
+
+.table-responsive{
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+}
+
+.daily-rates-table{
+    min-width:850px;
+}
+
+.daily-rates-table th,
+.daily-rates-table td{
+    padding:14px;
+    white-space:nowrap;
+}
+
+.rate-modal{
+    width:95%;
+}
+
+.modal-buttons{
+    flex-direction:column;
+}
+
+.cancel-btn,
+.save-btn{
+    width:100%;
+}
+
+}
+
+.action-buttons{
+    display:flex;
+    gap:10px;
+}
+
+.edit-btn{
+    background:#facc15;
+    color:#000;
+    border:none;
+    padding:8px 14px;
+    border-radius:6px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-weight:600;
+}
+
+.edit-btn:hover{
+    background:#eab308;
+}
+
+.delete-btn{
+    background:#ef4444;
+    color:#fff;
+    border:none;
+    padding:8px 14px;
+    border-radius:6px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-weight:600;
+}
+
+.delete-btn:hover{
+    background:#dc2626;
+}

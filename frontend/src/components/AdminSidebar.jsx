@@ -118,9 +118,9 @@ const AdminSidebar = ({
 
         <div className="sidebar-footer">
             <button className="logout-btn">
-                <FiLogOut />
-                {!collapsed && <span>Logout</span>}
-            </button>
+  <FiLogOut />
+  {!collapsed && <span>Logout</span>}
+</button>
         </div>
 
     </aside>
