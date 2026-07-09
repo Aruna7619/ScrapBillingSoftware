@@ -1,0 +1,45 @@
+.recent-sales{
+
+    background:#fff;
+
+    margin-top:40px;
+
+    padding:20px;
+
+    border-radius:12px;
+
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+
+}
+
+.recent-sales table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+.recent-sales th{
+
+    background:#f4f6f9;
+
+    padding:12px;
+
+    text-align:left;
+
+}
+
+.recent-sales td{
+
+    padding:12px;
+
+    border-bottom:1px solid #ddd;
+
+}
+
+.recent-sales tr:hover{
+
+    background:#f9f9f9;
+
+}

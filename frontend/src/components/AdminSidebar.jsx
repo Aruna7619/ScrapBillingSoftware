@@ -29,7 +29,7 @@ const AdminSidebar = ({
         {
             name: "Dashboard",
             icon: <FiGrid />,
-            path: "/CRMAdminDashboard",
+            path: "/dashboard",
         },
         {
             name: "Scrap Items",

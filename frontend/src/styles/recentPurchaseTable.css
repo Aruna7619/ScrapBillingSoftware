@@ -1,0 +1,45 @@
+.recent-purchase{
+
+    background:#fff;
+
+    margin-top:40px;
+
+    padding:20px;
+
+    border-radius:12px;
+
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+
+}
+
+.recent-purchase table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+.recent-purchase th{
+
+    background:#f4f6f9;
+
+    padding:12px;
+
+    text-align:left;
+
+}
+
+.recent-purchase td{
+
+    padding:12px;
+
+    border-bottom:1px solid #ddd;
+
+}
+
+.recent-purchase tr:hover{
+
+    background:#f9f9f9;
+
+}
