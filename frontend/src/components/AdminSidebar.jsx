@@ -1,17 +1,18 @@
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { FiMenu } from "react-icons/fi";
+
 import {
+  FiMenu,
   FiGrid,
-  FiUsers,
-  FiFileText,
+  FiPackage,
+  FiTrendingUp,
+  FiTruck,
   FiCreditCard,
-  FiDollarSign,
-  FiUser,
+  FiBarChart2,
+  FiUsers,
+  FiSettings,
   FiLogOut,
 } from "react-icons/fi";
-import { BsBank } from "react-icons/bs";
-import { HiOutlineDocumentReport } from "react-icons/hi";
 
 import "../styles/adminSidebar.css";
 
@@ -21,7 +22,6 @@ const AdminSidebar = ({
   mobileOpen,
   setMobileOpen,
 }) => {
-
   const navigate = useNavigate();
 
   const menuItems = [
@@ -32,17 +32,17 @@ const AdminSidebar = ({
     },
     {
       name: "Scrap Items",
-      icon: <FiUsers />,
+      icon: <FiPackage />,
       path: "/scrap-items",
     },
     {
       name: "Daily Rates",
-      icon: <FiFileText />,
+      icon: <FiTrendingUp />,
       path: "/daily-rates",
     },
     {
       name: "Vendors",
-      icon: <BsBank />,
+      icon: <FiTruck />,
       path: "/vendors",
     },
     {
@@ -52,27 +52,25 @@ const AdminSidebar = ({
     },
     {
       name: "Reports",
-      icon: <FiDollarSign />,
+      icon: <FiBarChart2 />,
       path: "/reports",
     },
     {
       name: "User Management",
-      icon: <HiOutlineDocumentReport />,
+      icon: <FiUsers />,
       path: "/user-management",
     },
     {
       name: "Settings",
-      icon: <FiUser />,
+      icon: <FiSettings />,
       path: "/settings",
     },
   ];
 
   const handleLogout = () => {
-
     if (window.confirm("Are you sure you want to logout?")) {
       navigate("/");
     }
-
   };
 
   return (
@@ -82,7 +80,6 @@ const AdminSidebar = ({
       } ${mobileOpen ? "open" : ""}`}
     >
       <div className="sidebar-top">
-
         {!collapsed && <h2>Scrap Billing</h2>}
 
         <button
@@ -97,13 +94,10 @@ const AdminSidebar = ({
         >
           <FiMenu />
         </button>
-
       </div>
 
       <ul className="sidebar-menu-admin">
-
         {menuItems.map((item, index) => (
-
           <NavLink
             key={index}
             to={item.path}
@@ -120,29 +114,18 @@ const AdminSidebar = ({
             <span className="menu-icon">{item.icon}</span>
 
             {!collapsed && (
-              <span className="menu-text">
-                {item.name}
-              </span>
+              <span className="menu-text">{item.name}</span>
             )}
-
           </NavLink>
-
         ))}
-
       </ul>
 
       <div className="sidebar-footer">
-
-        <button
-          className="logout-btn"
-          onClick={handleLogout}
-        >
+        <button className="logout-btn" onClick={handleLogout}>
           <FiLogOut />
           {!collapsed && <span>Logout</span>}
         </button>
-
       </div>
-
     </aside>
   );
 };

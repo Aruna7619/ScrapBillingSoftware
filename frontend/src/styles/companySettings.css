@@ -17,10 +17,17 @@
 
 .form-group input,
 .form-group textarea {
+    width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 14px;
+    box-sizing: border-box;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
 }
 
 .full-width {
@@ -31,6 +38,7 @@
     grid-column: 1 / 3;
     display: flex;
     justify-content: flex-end;
+    gap: 10px;
 }
 
 .save-btn {
@@ -40,8 +48,73 @@
     color: white;
     border-radius: 6px;
     cursor: pointer;
+    transition: 0.3s;
 }
 
 .save-btn:hover {
     background: #0b5ed7;
+}
+
+/* ---------- iPad Pro ---------- */
+@media (max-width: 1024px) {
+
+    .company-form {
+        gap: 18px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        font-size: 14px;
+    }
+}
+
+/* ---------- iPad / Tablet ---------- */
+@media (max-width: 768px) {
+
+    .company-form {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .full-width,
+    .form-buttons {
+        grid-column: auto;
+    }
+
+    .form-buttons {
+        justify-content: space-between;
+    }
+
+    .save-btn {
+        width: 100%;
+        padding: 12px;
+    }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 480px) {
+
+    .company-form {
+        gap: 14px;
+    }
+
+    .form-group label {
+        font-size: 14px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 9px;
+        font-size: 14px;
+    }
+
+    .form-buttons {
+        flex-direction: column;
+    }
+
+    .save-btn {
+        width: 100%;
+        padding: 12px;
+        font-size: 14px;
+    }
 }

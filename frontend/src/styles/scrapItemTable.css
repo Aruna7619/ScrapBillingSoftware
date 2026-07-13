@@ -1,37 +1,55 @@
-.scrap-table{
-    width:100%;
-    border-collapse:collapse;
-    background:white;
+.scrap-table {
+    width: 100%;
+    min-width: 800px;
+    border-collapse: collapse;
+    background: #fff;
 }
 
-.scrap-table th{
-    background:#f5f5f5;
-    padding:12px;
-    text-align:left;
+.scrap-table th {
+    background: #f5f5f5;
+    padding: 12px;
+    text-align: left;
+    white-space: nowrap;
 }
 
-.scrap-table td{
-    padding:12px;
-    border-top:1px solid #ddd;
+.scrap-table td {
+    padding: 12px;
+    border-top: 1px solid #ddd;
+    white-space: nowrap;
 }
 
-.edit-btn-scrap{
-    background:#ff9800;
-    color:white;
-    border:none;
-    padding:7px 12px;
-    margin-right:8px;
-    border-radius:4px;
-    cursor:pointer;
+/* Wrap the table inside a container */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 8px;
 }
 
-.delete-btn-scrap{
-    background:#e53935;
-    color:white;
-    border:none;
-    padding:7px 12px;
-    border-radius:4px;
-    cursor:pointer;
+.edit-btn-scrap,
+.delete-btn-scrap {
+    border: none;
+    padding: 7px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #fff;
+    transition: 0.3s;
+}
+
+.edit-btn-scrap {
+    background: #ff9800;
+    margin-right: 8px;
+}
+
+.edit-btn-scrap:hover {
+    background: #f57c00;
+}
+
+.delete-btn-scrap {
+    background: #e53935;
+}
+
+.delete-btn-scrap:hover {
+    background: #c62828;
 }
 
 .status {
@@ -44,11 +62,71 @@
 }
 
 .status.active {
-    background-color: #d4edda;
+    background: #d4edda;
     color: #155724;
 }
 
 .status.inactive {
-    background-color: #f8d7da;
+    background: #f8d7da;
     color: #721c24;
+}
+
+/* ---------- iPad Pro / Large Tablets ---------- */
+@media (max-width: 1024px) {
+
+    .scrap-table th,
+    .scrap-table td {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+/* ---------- iPad / Tablet ---------- */
+@media (max-width: 768px) {
+
+    .scrap-table {
+        min-width: 700px;
+    }
+
+    .scrap-table th,
+    .scrap-table td {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    .edit-btn-scrap,
+    .delete-btn-scrap {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+
+    .status {
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 480px) {
+
+    .scrap-table {
+        min-width: 650px;
+    }
+
+    .scrap-table th,
+    .scrap-table td {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    .edit-btn-scrap,
+    .delete-btn-scrap {
+        padding: 5px 8px;
+        font-size: 11px;
+    }
+
+    .status {
+        font-size: 11px;
+        padding: 4px 8px;
+    }
 }

@@ -1,29 +1,111 @@
-.modal-overlay{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.5);
-    display:flex;
-    justify-content:center;
-    align-items:center;
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    z-index: 1000;
 }
 
-.modal-content{
-    width:500px;
-    background:white;
-    border-radius:8px;
-    padding:25px;
+.modal-content {
+    width: 500px;
+    max-width: 100%;
+    background: #fff;
+    border-radius: 10px;
+    padding: 25px;
+    box-sizing: border-box;
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
-.modal-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:20px;
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
-.close-btn{
-    border:none;
-    background:none;
-    font-size:24px;
-    cursor:pointer;
+.modal-header h2,
+.modal-header h3 {
+    margin: 0;
+}
+
+.close-btn {
+    border: none;
+    background: none;
+    font-size: 24px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-btn:hover {
+    color: #e53935;
+}
+
+/* ---------- iPad Pro ---------- */
+@media (max-width: 1024px) {
+
+    .modal-content {
+        width: 460px;
+        padding: 22px;
+    }
+
+    .modal-header h2,
+    .modal-header h3 {
+        font-size: 22px;
+    }
+}
+
+/* ---------- iPad / Tablet ---------- */
+@media (max-width: 768px) {
+
+    .modal-overlay {
+        padding: 15px;
+    }
+
+    .modal-content {
+        width: 100%;
+        max-width: 500px;
+        padding: 20px;
+    }
+
+    .modal-header h2,
+    .modal-header h3 {
+        font-size: 20px;
+    }
+
+    .close-btn {
+        font-size: 22px;
+    }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 480px) {
+
+    .modal-overlay {
+        padding: 10px;
+        align-items: flex-end;
+    }
+
+    .modal-content {
+        width: 100%;
+        border-radius: 15px 15px 0 0;
+        padding: 18px;
+        max-height: 85vh;
+    }
+
+    .modal-header {
+        margin-bottom: 15px;
+    }
+
+    .modal-header h2,
+    .modal-header h3 {
+        font-size: 18px;
+    }
+
+    .close-btn {
+        font-size: 20px;
+    }
 }

@@ -8,7 +8,7 @@ const UserTable = ({
 }) => {
 
     return (
-
+        <div className="table-responsive">
         <table className="user-table">
 
             <thead>
@@ -50,14 +50,14 @@ const UserTable = ({
                             <td>
 
                                 <button
-                                    className="edit-btn"
+                                    className="edit-btn-new"
                                     onClick={() => onEdit(user)}
                                 >
                                     Edit
                                 </button>
 
                                 <button
-                                    className="delete-btn"
+                                    className="delete-btn-new"
                                     onClick={() => onDelete(user)}
                                 >
                                     Delete
@@ -84,6 +84,7 @@ const UserTable = ({
             </tbody>
 
         </table>
+        </div>
 
     );
 };

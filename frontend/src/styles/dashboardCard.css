@@ -61,3 +61,100 @@
     margin-bottom:0;
 
 }
+
+/* ---------- Tablet (992px and below) ---------- */
+@media (max-width: 992px) {
+
+    .dashboard-card {
+        padding: 18px;
+        gap: 16px;
+    }
+
+    .card-icon {
+        width: 55px;
+        height: 55px;
+        font-size: 24px;
+        flex-shrink: 0;
+    }
+
+    .card-content h4 {
+        font-size: 15px;
+    }
+
+    .card-content h2 {
+        font-size: 24px;
+    }
+}
+
+/* ---------- Mobile (768px and below) ---------- */
+@media (max-width: 768px) {
+
+    .dashboard-card {
+        padding: 16px;
+        gap: 14px;
+    }
+
+    .card-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 22px;
+    }
+
+    .card-content h4 {
+        font-size: 14px;
+    }
+
+    .card-content h2 {
+        font-size: 22px;
+        margin-top: 8px;
+    }
+}
+
+/* ---------- Small Mobile (480px and below) ---------- */
+@media (max-width: 480px) {
+
+    .dashboard-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 14px;
+        gap: 12px;
+    }
+
+    .card-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+    }
+
+    .card-content h4 {
+        font-size: 13px;
+    }
+
+    .card-content h2 {
+        font-size: 20px;
+        margin-top: 6px;
+    }
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+    .dashboard-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .dashboard-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .dashboard-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+}
