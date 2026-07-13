@@ -3,7 +3,8 @@
 =========================================*/
 
 #invoice{
-    width:210mm;
+    width:100%;
+    max-width:210mm;
     min-height:297mm;
     background:#fff;
     margin:20px auto;
@@ -172,6 +173,51 @@ body *{
     top:0;
     width:100%;
     margin:0;
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media(max-width:768px){
+
+.invoice-header,
+.invoice-info,
+.invoice-footer{
+    flex-direction:column;
+    gap:20px;
+}
+
+.invoice-right{
+    text-align:left;
+}
+
+.invoice-header h1{
+    font-size:22px;
+}
+
+.invoice-table{
+    font-size:13px;
+}
+
+.invoice-table th,
+.invoice-table td{
+    padding:8px;
+}
+
+#invoice{
+    padding:20px;
 }
 
 }

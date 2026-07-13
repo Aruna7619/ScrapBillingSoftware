@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
 
-const VendorModal = ({ show, onClose, selectedVendor }) => {
+const VendorModal = ({
+  show,
+  onClose,
+  selectedVendor,
+  onSave,
+}) => {
+
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -9,41 +15,65 @@ const VendorModal = ({ show, onClose, selectedVendor }) => {
   });
 
   useEffect(() => {
+
     if (selectedVendor) {
-      setFormData(selectedVendor);
+
+      setFormData({
+        name: selectedVendor.name,
+        phone: selectedVendor.phone,
+        address: selectedVendor.address,
+        status: selectedVendor.status,
+      });
+
     } else {
+
       setFormData({
         name: "",
         phone: "",
         address: "",
         status: "Active",
       });
+
     }
-  }, [selectedVendor]);
+
+  }, [selectedVendor, show]);
 
   if (!show) return null;
 
   const handleChange = (e) => {
+
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
+
   };
 
   const handleSubmit = (e) => {
+
     e.preventDefault();
 
-    alert("Vendor Saved Successfully!");
+    if (
+      !formData.name ||
+      !formData.phone ||
+      !formData.address
+    ) {
+      alert("Please fill all fields.");
+      return;
+    }
 
-    onClose();
+    onSave(formData);
+
   };
 
   return (
+
     <div className="modal-overlay">
 
       <div className="vendor-modal">
 
         <div className="modal-header">
+
           <h3>
             {selectedVendor ? "Edit Vendor" : "Add Vendor"}
           </h3>
@@ -54,11 +84,13 @@ const VendorModal = ({ show, onClose, selectedVendor }) => {
           >
             ×
           </button>
+
         </div>
 
         <form onSubmit={handleSubmit}>
 
           <div className="form-group">
+
             <label>Vendor Name</label>
 
             <input
@@ -67,11 +99,12 @@ const VendorModal = ({ show, onClose, selectedVendor }) => {
               value={formData.name}
               onChange={handleChange}
               placeholder="Enter Vendor Name"
-              required
             />
+
           </div>
 
           <div className="form-group">
+
             <label>Phone Number</label>
 
             <input
@@ -80,11 +113,12 @@ const VendorModal = ({ show, onClose, selectedVendor }) => {
               value={formData.phone}
               onChange={handleChange}
               placeholder="Enter Phone Number"
-              required
             />
+
           </div>
 
           <div className="form-group">
+
             <label>Address</label>
 
             <textarea
@@ -93,11 +127,12 @@ const VendorModal = ({ show, onClose, selectedVendor }) => {
               onChange={handleChange}
               placeholder="Enter Address"
               rows="3"
-              required
             />
+
           </div>
 
           <div className="form-group">
+
             <label>Status</label>
 
             <select
@@ -105,9 +140,10 @@ const VendorModal = ({ show, onClose, selectedVendor }) => {
               value={formData.status}
               onChange={handleChange}
             >
-              <option>Active</option>
-              <option>Inactive</option>
+              <option value="Active">Active</option>
+              <option value="Inactive">Inactive</option>
             </select>
+
           </div>
 
           <div className="modal-buttons">
@@ -124,7 +160,7 @@ const VendorModal = ({ show, onClose, selectedVendor }) => {
               type="submit"
               className="save-btn"
             >
-              Save
+              {selectedVendor ? "Update" : "Save"}
             </button>
 
           </div>
@@ -134,7 +170,9 @@ const VendorModal = ({ show, onClose, selectedVendor }) => {
       </div>
 
     </div>
+
   );
+
 };
 
 export default VendorModal;

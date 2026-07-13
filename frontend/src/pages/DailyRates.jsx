@@ -5,11 +5,14 @@ import UpdateRateModal from "../components/UpdateRateModal";
 import "../styles/dailyRates.css";
 
 const DailyRates = () => {
+
   const [search, setSearch] = useState("");
+
   const [showModal, setShowModal] = useState(false);
+
   const [selectedRate, setSelectedRate] = useState(null);
 
-  const [rates] = useState([
+  const [rates, setRates] = useState([
     {
       id: 1,
       item: "Iron Scrap",
@@ -44,32 +47,83 @@ const DailyRates = () => {
     rate.item.toLowerCase().includes(search.toLowerCase())
   );
 
-  // Edit
+  // Open Edit Modal
   const handleEdit = (rate) => {
     setSelectedRate(rate);
     setShowModal(true);
   };
 
-  // Delete
+  // Delete Rate
   const handleDelete = (id) => {
-    const confirmDelete = window.confirm(
-      "Are you sure you want to delete this rate?"
-    );
 
-    if (confirmDelete) {
-      alert(`Rate with ID ${id} deleted successfully.`);
-      // Later replace this with API call
+    if (window.confirm("Are you sure you want to delete this rate?")) {
+
+      setRates(rates.filter((rate) => rate.id !== id));
+
+      alert("Rate Deleted Successfully!");
+
     }
+
+  };
+
+  // Add / Update Rate
+  const handleSaveRate = (data) => {
+
+    if (selectedRate) {
+
+      // Update Existing Rate
+      setRates(
+        rates.map((rate) =>
+          rate.id === selectedRate.id
+            ? {
+                ...rate,
+                item: data.item,
+                rate: Number(data.rate),
+                updated: data.date,
+              }
+            : rate
+        )
+      );
+
+      alert("Rate Updated Successfully!");
+
+    } else {
+
+      // Add New Rate
+      const newRate = {
+        id: Date.now(),
+        item: data.item,
+        unit: "Kg",
+        rate: Number(data.rate),
+        updated: data.date,
+      };
+
+      setRates([...rates, newRate]);
+
+      alert("Rate Added Successfully!");
+
+    }
+
+    setShowModal(false);
+
+    setSelectedRate(null);
+
   };
 
   return (
+
     <AdminLayout>
+
       <div className="daily-rates-page">
 
         <div className="page-header">
+
           <div>
+
             <h2>Daily Rates</h2>
+
             <p>Manage today's scrap rates per kilogram.</p>
+
           </div>
 
           <button
@@ -81,15 +135,18 @@ const DailyRates = () => {
           >
             + Update Rates
           </button>
+
         </div>
 
         <div className="search-section">
+
           <input
             type="text"
             placeholder="Search Scrap Item..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
+
         </div>
 
         <DailyRatesTable
@@ -100,13 +157,20 @@ const DailyRates = () => {
 
         <UpdateRateModal
           show={showModal}
-          onClose={() => setShowModal(false)}
+          onClose={() => {
+            setShowModal(false);
+            setSelectedRate(null);
+          }}
           selectedRate={selectedRate}
+          onSave={handleSaveRate}
         />
 
       </div>
+
     </AdminLayout>
+
   );
+
 };
 
 export default DailyRates;

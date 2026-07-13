@@ -5,11 +5,14 @@ import VendorModal from "../components/VendorModal";
 import "../styles/vendors.css";
 
 const Vendors = () => {
+
   const [search, setSearch] = useState("");
+
   const [showModal, setShowModal] = useState(false);
+
   const [selectedVendor, setSelectedVendor] = useState(null);
 
-  const [vendors] = useState([
+  const [vendors, setVendors] = useState([
     {
       id: 1,
       name: "Ravi Kumar",
@@ -44,7 +47,7 @@ const Vendors = () => {
     vendor.name.toLowerCase().includes(search.toLowerCase())
   );
 
-  // Edit Vendor
+  // Open Edit Modal
   const handleEdit = (vendor) => {
     setSelectedVendor(vendor);
     setShowModal(true);
@@ -52,24 +55,75 @@ const Vendors = () => {
 
   // Delete Vendor
   const handleDelete = (id) => {
-    const confirmDelete = window.confirm(
-      "Are you sure you want to delete this vendor?"
-    );
 
-    if (confirmDelete) {
-      alert(`Vendor with ID ${id} deleted successfully.`);
-      // Later replace this with API call
+    if (window.confirm("Are you sure you want to delete this vendor?")) {
+
+      setVendors(
+        vendors.filter((vendor) => vendor.id !== id)
+      );
+
+      alert("Vendor Deleted Successfully!");
+
     }
+
+  };
+
+  // Add / Update Vendor
+  const handleSaveVendor = (data) => {
+
+    if (selectedVendor) {
+
+      setVendors(
+        vendors.map((vendor) =>
+          vendor.id === selectedVendor.id
+            ? {
+                ...vendor,
+                name: data.name,
+                phone: data.phone,
+                address: data.address,
+                status: data.status,
+              }
+            : vendor
+        )
+      );
+
+      alert("Vendor Updated Successfully!");
+
+    } else {
+
+      const newVendor = {
+        id: Date.now(),
+        name: data.name,
+        phone: data.phone,
+        address: data.address,
+        status: data.status,
+      };
+
+      setVendors([...vendors, newVendor]);
+
+      alert("Vendor Added Successfully!");
+
+    }
+
+    setShowModal(false);
+    setSelectedVendor(null);
+
   };
 
   return (
+
     <AdminLayout>
+
       <div className="vendors-page">
 
         <div className="page-header">
+
           <div>
+
             <h2>Vendors</h2>
+
             <p>Manage scrap vendors and seller information.</p>
+
           </div>
 
           <button
@@ -81,15 +135,18 @@ const Vendors = () => {
           >
             + Add Vendor
           </button>
+
         </div>
 
         <div className="search-section">
+
           <input
             type="text"
             placeholder="Search Vendor..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
+
         </div>
 
         <VendorsTable
@@ -100,13 +157,20 @@ const Vendors = () => {
 
         <VendorModal
           show={showModal}
-          onClose={() => setShowModal(false)}
+          onClose={() => {
+            setShowModal(false);
+            setSelectedVendor(null);
+          }}
           selectedVendor={selectedVendor}
+          onSave={handleSaveVendor}
         />
 
       </div>
+
     </AdminLayout>
+
   );
+
 };
 
 export default Vendors;
