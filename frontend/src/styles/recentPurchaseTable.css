@@ -1,45 +1,84 @@
-.recent-purchase{
-
-    background:#fff;
-
-    margin-top:40px;
-
-    padding:20px;
-
-    border-radius:12px;
-
-    box-shadow:0 2px 8px rgba(0,0,0,.08);
-
+.recent-purchase {
+    background: #fff;
+    margin-top: 40px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.08);
+    overflow-x: auto; /* Enables horizontal scroll on small screens */
 }
 
-.recent-purchase table{
-
-    width:100%;
-
-    border-collapse:collapse;
-
+.recent-purchase table {
+    width: 100%;
+    min-width: 650px; /* Prevents table from becoming too compressed */
+    border-collapse: collapse;
 }
 
-.recent-purchase th{
-
-    background:#f4f6f9;
-
-    padding:12px;
-
-    text-align:left;
-
+.recent-purchase th {
+    background: #f4f6f9;
+    padding: 12px;
+    text-align: left;
+    white-space: nowrap;
 }
 
-.recent-purchase td{
-
-    padding:12px;
-
-    border-bottom:1px solid #ddd;
-
+.recent-purchase td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    white-space: nowrap;
 }
 
-.recent-purchase tr:hover{
+.recent-purchase tr:hover {
+    background: #f9f9f9;
+}
 
-    background:#f9f9f9;
+/* ---------- Tablet ---------- */
+@media (max-width: 992px) {
 
+    .recent-purchase {
+        padding: 18px;
+        margin-top: 35px;
+    }
+
+    .recent-purchase th,
+    .recent-purchase td {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 768px) {
+
+    .recent-purchase {
+        padding: 15px;
+        margin-top: 30px;
+    }
+
+    .recent-purchase table {
+        min-width: 600px;
+    }
+
+    .recent-purchase th,
+    .recent-purchase td {
+        padding: 10px;
+        font-size: 13px;
+    }
+}
+
+/* ---------- Small Mobile ---------- */
+@media (max-width: 480px) {
+
+    .recent-purchase {
+        padding: 12px;
+        margin-top: 25px;
+    }
+
+    .recent-purchase table {
+        min-width: 550px;
+    }
+
+    .recent-purchase th,
+    .recent-purchase td {
+        padding: 8px;
+        font-size: 12px;
+    }
 }

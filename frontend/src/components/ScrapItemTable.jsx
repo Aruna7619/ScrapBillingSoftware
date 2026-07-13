@@ -2,13 +2,14 @@ import React from "react";
 import "../styles/scrapItemTable.css";
 
 const ScrapItemTable = ({
-    scrapItems,
-    onEdit,
-    onDelete,
+  scrapItems,
+  onEdit,
+  onDelete,
 }) => {
 
 
   return (
+    <div className="table-responsive">
     <table className="scrap-table">
 
       <thead>
@@ -30,32 +31,32 @@ const ScrapItemTable = ({
             <td>{item.itemName}</td>
             <td>{item.unit}</td>
             <td>
-    <span
-        className={
-            item.status === "Active"
-                ? "status active"
-                : "status inactive"
-        }
-    >
-        {item.status}
-    </span>
-</td>
+              <span
+                className={
+                  item.status === "Active"
+                    ? "status active"
+                    : "status inactive"
+                }
+              >
+                {item.status}
+              </span>
+            </td>
 
             <td>
 
               <button
-    className="edit-btn-scrap"
-    onClick={() => onEdit(item)}
->
-    Edit
-</button>
+                className="edit-btn-scrap"
+                onClick={() => onEdit(item)}
+              >
+                Edit
+              </button>
 
-             <button
-    className="delete-btn-scrap"
-    onClick={() => onDelete(item)}
->
-    Delete
-</button>
+              <button
+                className="delete-btn-scrap"
+                onClick={() => onDelete(item)}
+              >
+                Delete
+              </button>
             </td>
 
           </tr>
@@ -65,6 +66,7 @@ const ScrapItemTable = ({
       </tbody>
 
     </table>
+    </div>
   );
 };
 

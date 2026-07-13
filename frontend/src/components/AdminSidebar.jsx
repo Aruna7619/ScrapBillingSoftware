@@ -1,18 +1,20 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { FiMenu } from "react-icons/fi";
+
 import {
+    FiMenu,
     FiGrid,
-    FiUsers,
-    FiFileText,
+    FiPackage,
+    FiTrendingUp,
+    FiTruck,
     FiCreditCard,
-    FiDollarSign,
-    FiUser,
+    FiBarChart2,
+    FiUsers,
+    FiSettings,
     FiLogOut
 } from "react-icons/fi";
 
-import { BsBank } from "react-icons/bs";
-import { HiOutlineDocumentReport } from "react-icons/hi";
+
 
 import "../styles/adminSidebar.css";
 
@@ -25,48 +27,48 @@ const AdminSidebar = ({
 
 
 
-    const menuItems = [
-        {
-            name: "Dashboard",
-            icon: <FiGrid />,
-            path: "/",
-        },
-        {
-            name: "Scrap Items",
-            icon: <FiUsers />,
-            path: "/scrap-items",
-        },
-        {
-            name: "Daily Rates",
-            icon: <FiFileText />,
-            path: "/daily-rates",
-        },
-        {
-            name: "Vendors",
-            icon: <BsBank />,
-            path: "/vendors",
-        },
-        {
-            name: "Billing",
-            icon: <FiCreditCard />,
-            path: "/billing",
-        },
-        {
-            name: "Reports",
-            icon: <FiDollarSign />,
-            path: "/reports",
-        },
-        {
-            name: "User Management",
-            icon: <HiOutlineDocumentReport />,
-            path: "/user-management",
-        },
-        {
-            name: "Settings",
-            icon: <FiUser />,
-            path: "/settings",
-        },
-    ];
+   const menuItems = [
+    {
+        name: "Dashboard",
+        icon: <FiGrid />,
+        path: "/",
+    },
+    {
+        name: "Scrap Items",
+        icon: <FiPackage />,
+        path: "/scrap-items",
+    },
+    {
+        name: "Daily Rates",
+        icon: <FiTrendingUp />,
+        path: "/daily-rates",
+    },
+    {
+        name: "Vendors",
+        icon: <FiTruck />,
+        path: "/vendors",
+    },
+    {
+        name: "Billing",
+        icon: <FiCreditCard />,
+        path: "/billing",
+    },
+    {
+        name: "Reports",
+        icon: <FiBarChart2 />,
+        path: "/reports",
+    },
+    {
+        name: "User Management",
+        icon: <FiUsers />,
+        path: "/user-management",
+    },
+    {
+        name: "Settings",
+        icon: <FiSettings />,
+        path: "/settings",
+    },
+];
 
     return (<aside
         className={`admin-sidebar 
@@ -74,7 +76,7 @@ const AdminSidebar = ({
   ${mobileOpen ? "open" : ""}`}
     >
         <div className="sidebar-top">
-            {!collapsed && <h2>DSA CRM</h2>}
+            {!collapsed && <h2>Scrap Billing</h2>}
 
             <button
                 className="toggle-btn"

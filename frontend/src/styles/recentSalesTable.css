@@ -1,45 +1,84 @@
-.recent-sales{
-
-    background:#fff;
-
-    margin-top:40px;
-
-    padding:20px;
-
-    border-radius:12px;
-
-    box-shadow:0 2px 8px rgba(0,0,0,.08);
-
+.recent-sales {
+    background: #fff;
+    margin-top: 40px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.08);
+    overflow-x: auto; /* Enables horizontal scrolling on small screens */
 }
 
-.recent-sales table{
-
-    width:100%;
-
-    border-collapse:collapse;
-
+.recent-sales table {
+    width: 100%;
+    min-width: 650px;
+    border-collapse: collapse;
 }
 
-.recent-sales th{
-
-    background:#f4f6f9;
-
-    padding:12px;
-
-    text-align:left;
-
+.recent-sales th {
+    background: #f4f6f9;
+    padding: 12px;
+    text-align: left;
+    white-space: nowrap;
 }
 
-.recent-sales td{
-
-    padding:12px;
-
-    border-bottom:1px solid #ddd;
-
+.recent-sales td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    white-space: nowrap;
 }
 
-.recent-sales tr:hover{
+.recent-sales tr:hover {
+    background: #f9f9f9;
+}
 
-    background:#f9f9f9;
+/* ---------- Tablet ---------- */
+@media (max-width: 992px) {
 
+    .recent-sales {
+        padding: 18px;
+        margin-top: 35px;
+    }
+
+    .recent-sales th,
+    .recent-sales td {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 768px) {
+
+    .recent-sales {
+        padding: 15px;
+        margin-top: 30px;
+    }
+
+    .recent-sales table {
+        min-width: 600px;
+    }
+
+    .recent-sales th,
+    .recent-sales td {
+        padding: 10px;
+        font-size: 13px;
+    }
+}
+
+/* ---------- Small Mobile ---------- */
+@media (max-width: 480px) {
+
+    .recent-sales {
+        padding: 12px;
+        margin-top: 25px;
+    }
+
+    .recent-sales table {
+        min-width: 550px;
+    }
+
+    .recent-sales th,
+    .recent-sales td {
+        padding: 8px;
+        font-size: 12px;
+    }
 }
