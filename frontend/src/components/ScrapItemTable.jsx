@@ -44,14 +44,14 @@ const ScrapItemTable = ({
             <td>
 
               <button
-    className="edit-btn"
+    className="edit-btn-scrap"
     onClick={() => onEdit(item)}
 >
     Edit
 </button>
 
              <button
-    className="delete-btn"
+    className="delete-btn-scrap"
     onClick={() => onDelete(item)}
 >
     Delete
