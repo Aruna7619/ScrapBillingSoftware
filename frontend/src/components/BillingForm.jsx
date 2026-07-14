@@ -1,12 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const BillingForm = ({
-  onAddItem,
-  selectedVendor,
-  setSelectedVendor,
-  vendorLocked,
-}) => {
-  const vendors = [
+ const vendors = [
     "Ravi Kumar",
     "Manjunath",
     "Suresh",
@@ -19,6 +13,14 @@ const BillingForm = ({
     { name: "Aluminium Scrap", rate: 180 },
     { name: "Plastic Scrap", rate: 20 },
   ];
+
+const BillingForm = ({
+  onAddItem,
+  selectedVendor,
+  setSelectedVendor,
+  vendorLocked,
+}) => {
+ 
 
   const [item, setItem] = useState("");
   const [rate, setRate] = useState("");
