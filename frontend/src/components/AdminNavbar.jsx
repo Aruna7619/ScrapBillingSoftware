@@ -1,5 +1,5 @@
 import React from "react";
-import { FiSearch, FiBell } from "react-icons/fi";
+// import { FiSearch, FiBell } from "react-icons/fi";
 import "../styles/adminNavbar.css";
 
 const AdminNavbar = () => {
